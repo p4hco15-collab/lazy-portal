@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7 - Status</title>
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var CurrVoucher = '$(username)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var SessionTimeLeftSecs = '$(session-time-left-secs)';
+      var SessionUptimeSecs = '$(uptime-secs)';
+      var LoginError = '';
+    </script>
+  </head>
+  <body>
+    <div id="toast"></div>
+    <div id="root"></div>
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/status.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+    $(if refresh-timeout)
+    <script>
+      setInterval(function () {
+        if (!InsertingCoin) {
+          location.reload();
+        }
+      }, $(refresh-timeout-secs) * 1000);
+    </script>
+    $(endif)
+  </body>
+</html>

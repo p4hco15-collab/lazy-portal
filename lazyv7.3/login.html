@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy V7.2 - Login</title>
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v='+cachebust+'">');
+      document.write('<scr'+'ipt defer src="assets/js/config.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/pako.min.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+  </head>
+  <body>
+    <div id="toast"></div>
+    $(if chap-id)
+    <form
+      name="sendin"
+      action="$(link-login-only)"
+      method="post"
+      style="display: none"
+    >
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-status)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+    <script src="assets/core/md5.js"></script>
+    <script>
+      var Mac = '$(mac)';
+      var IpAddress = '$(ip)';
+      var LinkLogin = '$(link-login-only)';
+      var LinkStatus = '$(link-status)';
+      var LinkLogout = '$(link-logout)';
+      var InterfaceName = '$(interface-name)';
+      var ServerAddress = '$(server-address)';
+      var LoginError = '';
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+        );
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif) $(if error)
+    <script>
+      LoginError = '$(error)';
+    </script>
+    $(endif)
+
+    <div id="root"></div>
+    $(if trial == 'yes')
+    <div id="trial_button">
+      <a
+        href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+        >Free Trial</a
+      >
+    </div>
+    $(endif)
+    <script type="text/javascript">
+      var cachebust = Math.round(new Date().getTime() / 1000);
+      document.write('<scr'+'ipt defer src="assets/core/core.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/main.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/navbar.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/header.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/login.js?v='+cachebust+'"></scr'+'ipt>');
+      document.write('<scr'+'ipt defer src="assets/core/footer.js?v='+cachebust+'"></scr'+'ipt>');
+    </script>
+  </body>
+</html>
